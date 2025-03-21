@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "/home/kongr45gpen/cubesat-sw/simple",
+    "files.associations": {
+        "cstdio": "cpp"
+    }
+}
