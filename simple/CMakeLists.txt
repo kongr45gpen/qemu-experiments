@@ -29,14 +29,17 @@ add_executable(main.elf startup.s main.cpp)
 set(COMMON_OPTIONS
     -mcpu=cortex-m3
     -mthumb -mthumb-interwork
-    -ffunction-sections -fdata-sections
+    # -ffunction-sections -fdata-sections
     -g
     -fno-common
     -fmessage-length=0
-    -specs=nosys.specs
-    -specs=nano.specs
+    # -specs=nosys.specs
+    # -specs=nano.specs
     -mfloat-abi=soft
-    --specs=rdimon.specs -lc -lrdimon
+    -fverbose-asm
+    -specs=rdimon.specs
+    -lc -lrdimon
+    -O0
 )
 target_compile_options(main.elf PRIVATE ${COMMON_OPTIONS})
 target_link_options(main.elf PRIVATE ${COMMON_OPTIONS} -Wl,--gc-sections -T${LINKER_SCRIPT})
