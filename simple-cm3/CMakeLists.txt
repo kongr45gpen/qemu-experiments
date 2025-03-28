@@ -10,10 +10,6 @@ set(CMAKE_C_COMPILER   arm-none-eabi-gcc)
 set(CMAKE_CXX_COMPILER arm-none-eabi-g++)
 set(CMAKE_ASM_COMPILER  arm-none-eabi-gcc)
 
-# where is the target environment located
-set(CMAKE_FIND_ROOT_PATH  /usr/i586-mingw32msvc
-    /home/alex/mingw-install)
-
 # adjust the default behavior of the FIND_XXX() commands:
 # search programs in the host environment
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
