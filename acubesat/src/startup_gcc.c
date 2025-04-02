@@ -87,8 +87,6 @@ void SystemInit(void)
 
     /* Overwriting the default value of the NVMCTRL.CTRLB.MANW bit (errata reference 13134) */
     // NVMCTRL_REGS->NVMCTRL_CTRLB |= 1 << 7;
-    initialise_monitor_handles();
-    printf("  [LOG] SystemInit\n");
 
     // Force exception
     // volatile uint32_t *pSrc2 = (uint32_t *)(0xDEADBEEF);
@@ -103,5 +101,7 @@ void SystemInit(void)
     /* Initialize the C library */
     __libc_init_array();
 
-    printf("LibC init OK\n");
+    initialise_monitor_handles();
+    printf("  [QEMU] SystemInit\n");
+    printf("  [QEMU] LibC init OK\n");
 }

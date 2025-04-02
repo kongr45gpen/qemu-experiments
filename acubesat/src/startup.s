@@ -36,7 +36,7 @@ __isr_vector:
     .long    0                     /* Reserved */
     .long    0                     /* Reserved */
     .long    0                     /* Reserved */
-    .long    SVC_Handler           /* SVCall Handler */
+    .long    SVCall_Handler        /* SVCall Handler */
     .long    DebugMon_Handler      /* Debug Monitor */
     .long    0                     /* Reserved */
     .long    PendSV_Handler        /* PendSV Handler */
@@ -155,7 +155,7 @@ system_startup:
     def_default_handler    MemManage_Handler
     def_default_handler    BusFault_Handler
     def_default_handler    UsageFault_Handler
-    def_default_handler    SVC_Handler
+    def_default_handler    SVCall_Handler
     def_default_handler    DebugMon_Handler
     def_default_handler    PendSV_Handler
     def_default_handler    SysTick_Handler

@@ -21,7 +21,7 @@ bool MCAN0_MessageTransmitFifo(uint8_t numberOfMessage, MCAN_TX_BUFFER *txBuffer
 
 void MCAN0_MessageRAMConfigSet(uint8_t *msgRAMConfigBaseAddress)
 {
-    // Do nothing
+    // Do nothing        
 }
 
 void MCAN0_RxFifoCallbackRegister(MCAN_RX_FIFO_NUM rxFifoNum, MCAN_RX_FIFO_CALLBACK callback, uintptr_t contextHandle)

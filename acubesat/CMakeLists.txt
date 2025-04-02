@@ -13,7 +13,7 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
-set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/mps3.ld)
+set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/mps4.ld)
 
 add_definitions(-DARM_MATH_CM7 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT=1)
 
@@ -98,6 +98,7 @@ list(REMOVE_ITEM SOURCES
     ${PROJECT_SOURCE_DIR}/original/src/config/default/peripheral/clk/plib_clk.c
     ${PROJECT_SOURCE_DIR}/original/src/config/default/peripheral/mcan/plib_mcan0.c
     ${PROJECT_SOURCE_DIR}/original/src/config/default/peripheral/mcan/plib_mcan1.c
+    ${PROJECT_SOURCE_DIR}/original/lib/cross-platform-software/src/Platform/Logger.cpp
 )
 
 add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT} ${FREERTOS_SOURCES} ${DRIVER_SOURCES})
