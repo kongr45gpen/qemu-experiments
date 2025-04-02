@@ -1,0 +1,3 @@
+[submodule "acubesat/original"]
+	path = acubesat/original
+	url = https://gitlab.com/acubesat/obc/obc-software.git

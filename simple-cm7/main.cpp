@@ -9,8 +9,10 @@ extern "C" int main() {
 
     int i = 0;
 
+    volatile char string[] = "Hello, world!";
+
     while (true) {
-        printf("[%05ld] Hello, World!\n", GetMs());
+        printf("[%05ld] [%08X] %s\n", GetMs(), (unsigned int) string, string);
         Sleepms(500);
     }
 
