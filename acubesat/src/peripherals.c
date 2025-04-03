@@ -1,6 +1,7 @@
 #include "device.h"
 #include "interrupts.h"
 #include "peripheral/mcan/plib_mcan_common.h"
+#include "peripheral/afec/plib_afec0.h"
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -72,4 +73,32 @@ bool MCAN1_MessageReceiveFifo(MCAN_RX_FIFO_NUM rxFifoNum, uint8_t numberOfMessag
 void MCAN1_TxFifoCallbackRegister(MCAN_TX_FIFO_CALLBACK callback, uintptr_t contextHandle)
 {
     // Do nothing
+}
+
+static AFEC_CALLBACK_OBJECT AFEC0_CallbackObj_Mock;
+
+void AFEC0_Initialize()
+{
+}
+
+uint16_t AFEC0_ChannelResultGet(AFEC_CHANNEL_NUM channel)
+{
+    // AFEC0_REGS->AFEC_CSELR = channel;
+    // return (AFEC0_REGS->AFEC_CDR);
+    return 12000;
+}
+
+void AFEC0_CallbackRegister(AFEC_CALLBACK callback, uintptr_t context)
+{
+    printf("callbackresgisterset %p!!!\n", callback);
+
+    AFEC0_CallbackObj_Mock.callback_fn = callback;
+    AFEC0_CallbackObj_Mock.context = context;
+}
+
+void AFEC0_ConversionStart(void)
+{
+    uint32_t status = 0;
+
+    AFEC0_CallbackObj_Mock.callback_fn(status, AFEC0_CallbackObj_Mock.context);
 }
